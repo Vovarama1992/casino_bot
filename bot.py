@@ -51,7 +51,7 @@ async def process_message(message: Message):
 async def cmd_start(message: Message):
     await process_message(message)
     markup = InlineKeyboardMarkup(inline_keyboard=kb)
-    await message.answer_photo(start_img, caption='Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное lotos.na4u.ru/! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
+    await message.answer_photo(start_img, caption='Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное lotos.na4u.ru! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
 
 @dp.message()
 async def other(message: Message):

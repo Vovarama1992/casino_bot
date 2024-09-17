@@ -9,7 +9,7 @@ bot = Bot(token="7494241350:AAHbMYhwHx4RsxdhWDN57O6dBcxOx-cKv80")
 dp = Dispatcher()
 
 def getInlineKeyboard(param):
-    link = "https://lotos-casino.net"
+    link = "https://lotos.na4u.ru/"
     if(param):
         link += f'?{param}'
 
@@ -42,7 +42,7 @@ async def cmd_start(message: Message):
     markup = InlineKeyboardMarkup(
             inline_keyboard=inlineKeyboard)
 
-    await message.answer('Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное Lotos-casino.com! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
+    await message.answer('Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное lotos.na4u.ru/! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
 async def main():
     await dp.start_polling(bot)
 

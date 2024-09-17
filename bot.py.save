@@ -1,0 +1,28 @@
+import asyncio
+import logging
+from aiogram import Bot, Dispatcher
+from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, BotCommand
+from aiogram.filters.command import Command
+
+logging.basicConfig(level=logging.INFO)
+bot = Bot(token="7494241350:AAHbMYhwHx4RsxdhWDN57O6dBcxOx-cKv80")
+dp = Dispatcher()
+
+kb = [
+        [
+            InlineKeyboardButton(text='Play', web_app=WebAppInfo(url=f'https://lotos.na4u.ru/'))
+            ]
+        ]
+
+@dp.message(Command("start"))
+async def cmd_start(message: Message):
+    markup = InlineKeyboardMarkup(
+            inline_keyboard=kb)
+    await message.answer("Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное Lotos-casino.com! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑", reply_markup=markup)
+
+async def main():
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+

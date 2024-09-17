@@ -13,7 +13,7 @@ import json
 
 
 logging.basicConfig(level=logging.INFO)
-bot = Bot(token="7494241350:AAHbMYhwHx4RsxdhWDN57O6dBcxOx-cKv80", default=DefaultBotProperties(parse_mode='HTML'))
+bot = Bot(token="7326667914:AAGaGAIQKH_-tzGQMnWFis2ZFIddWvXVvfU", default=DefaultBotProperties(parse_mode='HTML'))
 dp = Dispatcher()
 app = FastAPI()
 

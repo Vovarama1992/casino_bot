@@ -1,5 +1,3 @@
-root@zekadzokin:~/casino_bot# cat main.py
-import asyncio
 import logging
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo, BotCommand, User, FSInputFile

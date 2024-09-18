@@ -1,3 +1,4 @@
+root@zekadzokin:~/casino_bot# cat main.py
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher
@@ -13,7 +14,7 @@ import json
 
 
 logging.basicConfig(level=logging.INFO)
-bot = Bot(token="7326667914:AAGaGAIQKH_-tzGQMnWFis2ZFIddWvXVvfU", default=DefaultBotProperties(parse_mode='HTML'))
+bot = Bot(token="326667914:AAGaGAIQKH_-tzGQMnWFis2ZFIddWvXVvfU", default=DefaultBotProperties(parse_mode='HTML'))
 dp = Dispatcher()
 app = FastAPI()
 
@@ -38,8 +39,8 @@ async def get_photo(uid: int):
 
 
 kb = [
-        [   
-            InlineKeyboardButton(text='Play', web_app=WebAppInfo(url=f'https://lotos.na4u.ru/'))
+        [
+            InlineKeyboardButton(text='Play', web_app=WebAppInfo(url=f'https://lotos.na4u.ru/?user_referral_id={message.from_user.id}'))
             ]
         ]
 
@@ -50,13 +51,13 @@ async def process_message(message: Message):
         async with aiofiles.open("udata.txt", mode="w") as file:
             await file.write(json.dumps(ids))
 
-    
+
 
 @dp.message(Command("start"))
 async def cmd_start(message: Message):
     await process_message(message)
     markup = InlineKeyboardMarkup(inline_keyboard=kb)
-    await message.answer_photo(start_img, caption='Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное lotos.na4u.ru/! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
+    await message.answer_photo(start_img, caption='Добро пожаловать, в первое лицензированное казино Telegram в мире, представленное lotos.na4u.ru! 💥 Готовы начать? Просто нажмите "Играть сейчас!" и погрузитесь в опыт Lotos - полностью анонимное казино. 🤑', reply_markup=markup)
 
 @dp.message()
 async def other(message: Message):
@@ -86,3 +87,5 @@ async def on_shutdown():
 def on_app_startup():
     print(el:=asyncio.get_running_loop())
     el.create_task(dp.start_polling(bot))
+
+
